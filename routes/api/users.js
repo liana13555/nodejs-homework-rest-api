@@ -8,6 +8,8 @@ const router = express.Router()
 
 router.post('/signup', validation(joiRegisterSchema), ctrlWrapper(ctrl.signup))
 
+router.get('/verify/:verificationToken', ctrlWrapper(ctrl.verifyEmail))
+
 router.post('/login', validation(joiLoginSchema), ctrlWrapper(ctrl.login))
 
 router.get('/current', auth, ctrlWrapper(ctrl.getCurrent))
